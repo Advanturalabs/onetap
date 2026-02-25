@@ -1,0 +1,7 @@
+class AppFonts{
+  static const bold = 'bold';
+  static const medium = 'medium';
+  static const regular = 'regular';
+  //FontFamily
+  static const String fontFamily = "regular";
+}
