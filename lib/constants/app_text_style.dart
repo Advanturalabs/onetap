@@ -19,10 +19,10 @@ class AppTextStyle {
   );
 
 
-  static TextStyle font24Weight600TextStyle = const TextStyle(
+  static TextStyle font24Weight700TextStyle = const TextStyle(
     fontFamily: fontFamily,
     fontSize: 24,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w700,
   );
 
   static TextStyle font20Weight600TextStyle = const TextStyle(
@@ -31,10 +31,10 @@ class AppTextStyle {
     fontWeight: FontWeight.w600,
   );
 
-  static TextStyle font20Weight400TextStyle = const TextStyle(
+  static TextStyle font20Weight500TextStyle = const TextStyle(
     fontFamily: fontFamily,
     fontSize: 20,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w500,
   );
 
   static TextStyle font18Weight700TextStyle = const TextStyle(

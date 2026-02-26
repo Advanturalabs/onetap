@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class LayoutSpacing {
   LayoutSpacing._();
   static const double heightFour = 4.0;
+  static const double heightSix = 6.0;
   static const double heightEight = 8.0;
   static const double heighttwelve = 12.0;
   static const double heightSixteen = 16.0;
   static const double heightTwenty_Four = 24.0;
+  static const double heightThirty = 30.0;
   static const double heightThirty_two = 32.0;
   static const double heightFourty_Eight = 48.0;
   static const double screenHorizontal = 16.0;

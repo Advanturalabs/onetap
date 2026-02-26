@@ -20,4 +20,9 @@ class AppAssets{
 
 
   static String logo= 'assets/app_icons/logo.png';
+  static String onboarding1bg= 'assets/app_images/onboarding1bg.png';
+  static String onboarding2bg= 'assets/app_images/onboarding2bg.png';
+  static String authBgImage= 'assets/app_images/auth_bg_image.png';
+  static String image= 'assets/app_images/image.png';
+
 }

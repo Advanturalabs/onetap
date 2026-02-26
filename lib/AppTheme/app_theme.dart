@@ -7,7 +7,7 @@ class AppTheme{
   static Color lightSecondaryColor=Color(0xFFC5E9FA);
   static Color blackColor=Color(0xFF000000);
 
-  static Color textFieldBorderColor=Color(0xFFEAECF0);
+  static Color borderColor=Color(0xFFEAECF0);
   static Color greyColor=Color(0xFF667085);
   static Color grey400Color=Color(0xFF98A2B3);
 

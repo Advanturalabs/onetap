@@ -1,5 +1,8 @@
 import 'package:get/get.dart';
 
+import '../views/auth/controller/auth_controller.dart';
+import '../views/splash/controller/splash_controller.dart';
+
 
 
 class LazyController extends Bindings{
@@ -7,7 +10,8 @@ class LazyController extends Bindings{
   void dependencies() {
     // TODO: implement dependencies
 
-    // Get.put(SplashController());
+    Get.put(SplashController());
+    Get.put(AuthController());
 
 
   }

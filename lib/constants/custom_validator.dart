@@ -5,14 +5,14 @@ class CustomValidator {
     }
     final emailRegex = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
     if (!emailRegex.hasMatch(value)) {
-      return 'Please enter a valid email';
+      return 'Invalid email address';
     }
     return null;
   }
 
   static String? password(String? value) {
     if (value!.isEmpty) {
-      return 'Enter password';
+      return 'Incorrect password';
     } else if (value.length < 8) {
       return 'Password must be at least 8 characters';
     }
