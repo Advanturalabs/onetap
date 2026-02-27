@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import '../views/auth/screen/forgot_Password_screen.dart';
 import '../views/auth/screen/login_screen.dart';
 import '../views/auth/screen/reset_password_screen.dart';
+import '../views/bottom_nav_bar/screen/bottom_nav_screen.dart';
 import '../views/onboarding/screen/onboarding_screen.dart';
 import '../views/splash/screen/splash_screen.dart';
 import 'app_routes.dart';
@@ -13,6 +14,7 @@ class AppPages {
     GetPage(name: AppRoutes.loginScreen, page: () =>  LoginScreen()),
     GetPage(name: AppRoutes.forgotPasswordScreen, page: () =>  ForgotPasswordScreen()),
     GetPage(name: AppRoutes.resetPasswordScreen, page: () =>  ResetPasswordScreen()),
+    GetPage(name: AppRoutes.bottomNavScreen, page: () =>  BottomNavScreen()),
 
   ];
 }

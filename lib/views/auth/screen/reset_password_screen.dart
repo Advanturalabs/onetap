@@ -60,7 +60,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Reset password?',
+                          'Reset password',
                           style: AppTextStyle.font24Weight700TextStyle
                               .copyWith(color: AppTheme.primaryColor),
                         ),
@@ -92,7 +92,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                           // Email
                           Text(
                             'New Password',
-                            style: AppTextStyle.font20Weight500TextStyle
+                            style: AppTextStyle.font14Weight400TextStyle
                                 .copyWith(color: AppTheme.blackColor),
                           ),
                           SizedBox(height: LayoutSpacing.heightSix),
@@ -100,7 +100,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                           Obx(
                                 () => CustomTextField(
                                   controller: newPasswordController,
-                                  hintText: 'Enter your password',
+                                  hintText: 'Enter new password',
                                   isObscure:
                                   authController.obscureNewPassword.value,
                                   suffixIcon: IconButton(
@@ -120,7 +120,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                           SizedBox(height: LayoutSpacing.heighttwelve),
                           Text(
                             'Confirm New Password',
-                            style: AppTextStyle.font20Weight500TextStyle
+                            style: AppTextStyle.font14Weight400TextStyle
                                 .copyWith(color: AppTheme.blackColor),
                           ),
                           SizedBox(height: LayoutSpacing.heightSix),
@@ -153,6 +153,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                               print("Confirm Password : ${confirmPasswordController.text}");
                             },
                           ),
+                          SizedBox(height: 24)
                         ],
                       ),
                     ),

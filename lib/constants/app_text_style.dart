@@ -20,7 +20,7 @@ class AppTextStyle {
 
 
   static TextStyle font24Weight700TextStyle = const TextStyle(
-    fontFamily: fontFamily,
+    fontFamily: fontFamilyBold,
     fontSize: 24,
     fontWeight: FontWeight.w700,
   );

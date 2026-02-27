@@ -129,7 +129,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             validator: CustomValidator.password,
                           ),
                         ),
-
                         SizedBox(height: LayoutSpacing.heighttwelve),
                         Align(
                           alignment: Alignment.centerRight,
@@ -150,9 +149,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           onTap: () {
                             print("Email : ${emailController.text}");
                             print("Password : ${passwordController.text}");
+                            Get.toNamed(AppRoutes.bottomNavScreen);
                           },
                         ),
-                        // SizedBox(height: 24,)
+                        SizedBox(height: 24)
                       ],
                     ),
                   ),

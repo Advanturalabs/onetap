@@ -87,7 +87,7 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   FocusNode? _focusNode;
-  bool _hasError = false; // Track error state
+  bool _hasError = false;
 
   @override
   void initState() {
@@ -207,8 +207,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
           focusedBorder: focusedBorder,
           enabledBorder: defaultBorder,
           disabledBorder: defaultBorder,
-          errorBorder: defaultBorder,         // ✅ No red border
-          focusedErrorBorder: focusedBorder,  // ✅ No red border
+          errorBorder: defaultBorder,
+          focusedErrorBorder: focusedBorder,
           hintText: widget.hintText ?? '',
           errorStyle: AppTextStyle.font12Weight400TextStyle.copyWith(
             fontSize: widget.isChangeErrorFont == true ? 8 : 12,
