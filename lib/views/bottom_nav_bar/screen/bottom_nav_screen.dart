@@ -4,7 +4,9 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:onetap/AppTheme/app_theme.dart';
 import 'package:onetap/constants/app_assets.dart';
 import 'package:onetap/constants/app_text_style.dart';
+import 'package:onetap/views/home/screen/home_screen.dart';
 import 'package:sizer/sizer.dart';
+import '../../training/screen/training_screen.dart';
 import '../controller/bottom_nav_controller.dart';
 
 class BottomNavScreen extends StatelessWidget {
@@ -13,9 +15,9 @@ class BottomNavScreen extends StatelessWidget {
   BottomNavController bottomNavController = Get.find();
 
   final List<Widget> pages = const [
-    Center(child: Text('Home Screen')),
+    HomeScreen(),
     Center(child: Text('Events Screen')),
-    Center(child: Text('Saved Screen')),
+    TrainingScreen(),
     Center(child: Text('Profile Screen')),
   ];
 
@@ -33,11 +35,20 @@ class BottomNavScreen extends StatelessWidget {
           }
         },
         child: Scaffold(
+          backgroundColor: AppTheme.primaryColor,
           body: pages[bottomNavController.selectedIndex.value],
           bottomNavigationBar: Container(
             decoration: BoxDecoration(
               color: AppTheme.primaryColor,
               borderRadius: BorderRadius.circular(75),
+              boxShadow: [
+                BoxShadow(
+                  color: AppTheme.blackColor.withOpacity(0.4),
+                  blurRadius: 10,
+                  spreadRadius: 0,
+                  offset: Offset(0, 0),
+                ),
+              ],
             ),
             margin: EdgeInsets.symmetric(
               horizontal: 16,
@@ -54,7 +65,6 @@ class BottomNavScreen extends StatelessWidget {
               // Active tab styling
               activeColor: AppTheme.primaryColor,
               tabBackgroundColor: AppTheme.secondaryColor,
-
               color: AppTheme.greyColor,
               tabBorderRadius: 44,
               gap: 6,
@@ -116,7 +126,6 @@ class BottomNavScreen extends StatelessWidget {
                   text: 'Profile',
                 ),
               ],
-
             ),
           ),
         ),

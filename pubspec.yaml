@@ -59,7 +59,7 @@ flutter:
         - asset: assets/app_fonts/Inter_28pt-Bold.ttf
     - family: medium
       fonts:
-        - asset: assets/app_fonts/Inter_28pt-Italic.ttf
+        - asset: assets/app_fonts/Inter_28pt-Medium.ttf
     - family: regular
       fonts:
         - asset: assets/app_fonts/Inter_28pt-Regular.ttf

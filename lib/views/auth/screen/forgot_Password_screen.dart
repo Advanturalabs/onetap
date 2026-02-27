@@ -59,7 +59,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       children: [
                         Text(
                           'Forgot password?',
-                          style: AppTextStyle.font24Weight700TextStyle
+                          style: AppTextStyle.font24Weight700BoldTextStyle
                               .copyWith(color: AppTheme.primaryColor),
                         ),
                         SizedBox(height: LayoutSpacing.heightEight),

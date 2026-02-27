@@ -34,8 +34,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
-
     return Scaffold(
       body: Container(
         width: 100.w,
@@ -58,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Text(
                       'Sign In',
-                      style: AppTextStyle.font24Weight700TextStyle
+                      style: AppTextStyle.font24Weight700BoldTextStyle
                           .copyWith(color: AppTheme.primaryColor),
                     ),
                     SizedBox(height: LayoutSpacing.heightEight),

@@ -5,4 +5,7 @@ class AppRoutes {
    static const forgotPasswordScreen = '/forgotPasswordScreen';
    static const resetPasswordScreen = '/resetPasswordScreen';
    static const bottomNavScreen = '/bottomNavScreen';
+   static const homeScreen = '/homeScreen';
+   static const upcomingSessionScreen = '/upcomingSessionScreen';
+   static const trainingScreen = '/trainingScreen';
 }

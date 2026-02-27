@@ -61,7 +61,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       children: [
                         Text(
                           'Reset password',
-                          style: AppTextStyle.font24Weight700TextStyle
+                          style: AppTextStyle.font24Weight700BoldTextStyle
                               .copyWith(color: AppTheme.primaryColor),
                         ),
                         SizedBox(height: LayoutSpacing.heightEight),

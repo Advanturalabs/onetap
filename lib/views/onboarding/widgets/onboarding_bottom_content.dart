@@ -35,7 +35,7 @@ class OnboardingBottomContent extends StatelessWidget {
           children: [
             Text(
               heading,
-              style: AppTextStyle.font24Weight700TextStyle
+              style: AppTextStyle.font24Weight700BoldTextStyle
                   .copyWith(color: AppTheme.primaryColor),
               textAlign: TextAlign.center,
             ),

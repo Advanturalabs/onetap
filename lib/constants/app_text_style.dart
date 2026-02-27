@@ -3,32 +3,34 @@ import 'package:flutter/material.dart';
 
 class AppTextStyle {
   static const String fontFamily = "regular";
+  static const String fontFamilyMedium = "medium";
   static const String fontFamilyBold = "bold";
 
 
-  static TextStyle font57Weight800TextStyle = const TextStyle(
+
+  static TextStyle font57Weight800BoldTextStyle = const TextStyle(
     fontFamily: fontFamilyBold,
     fontSize: 57,
     fontWeight: FontWeight.w800,
   );
 
-  static TextStyle font32Weight700TextStyle = const TextStyle(
+  static TextStyle font32Weight700BoldTextStyle = const TextStyle(
     fontFamily: fontFamilyBold,
     fontSize: 32,
     fontWeight: FontWeight.w700,
   );
 
 
-  static TextStyle font24Weight700TextStyle = const TextStyle(
+  static TextStyle font24Weight700BoldTextStyle = const TextStyle(
     fontFamily: fontFamilyBold,
     fontSize: 24,
     fontWeight: FontWeight.w700,
   );
 
-  static TextStyle font20Weight600TextStyle = const TextStyle(
+  static TextStyle font20Weight700TextStyle = const TextStyle(
     fontFamily: fontFamily,
     fontSize: 20,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w700,
   );
 
   static TextStyle font20Weight500TextStyle = const TextStyle(
@@ -57,6 +59,11 @@ class AppTextStyle {
 
   static TextStyle font16Weight600TextStyle = const TextStyle(
     fontFamily: fontFamily,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
+  static TextStyle font16Weight600MediumTextStyle = const TextStyle(
+    fontFamily: fontFamilyMedium,
     fontSize: 16,
     fontWeight: FontWeight.w600,
   );
@@ -106,6 +113,12 @@ class AppTextStyle {
 
   static TextStyle font12Weight400TextStyle = const TextStyle(
     fontFamily: fontFamily,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle font12Weight400BoldTextStyle = const TextStyle(
+    fontFamily: fontFamilyBold,
     fontSize: 12,
     fontWeight: FontWeight.w400,
   );

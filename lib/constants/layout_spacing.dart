@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class LayoutSpacing {
   LayoutSpacing._();
+  static const double heightTwo = 2.0;
   static const double heightFour = 4.0;
   static const double heightSix = 6.0;
   static const double heightEight = 8.0;

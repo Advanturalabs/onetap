@@ -5,11 +5,15 @@ class AppTheme{
   static Color primaryColor=Color(0xFFFFFFFF);
   static Color secondaryColor=Color(0xFF1190CB);
   static Color lightSecondaryColor=Color(0xFFC5E9FA);
+  static Color backgroundColor=Color(0xFFFCFCFD);
+
   static Color blackColor=Color(0xFF000000);
 
   static Color borderColor=Color(0xFFEAECF0);
   static Color greyColor=Color(0xFF667085);
+  static Color darkGreyColor=Color(0xFF344054);
   static Color grey400Color=Color(0xFF98A2B3);
+  static Color grey100Color=Color(0xFFF2F4F7);
 
   static Color redColor=Color(0xFFFF0000);
   static Color lightRedColor=Color(0xFFFEF3F2);
