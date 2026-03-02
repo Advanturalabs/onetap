@@ -5,57 +5,57 @@ import '../../../AppTheme/app_theme.dart';
 import '../../../constants/app_text_style.dart';
 import '../../../constants/layout_spacing.dart';
 
-enum SessionStatus { upcoming, completed, mandatory }
+enum AttendanceStatus { completed, partial, absent }
 
-class UpcomingSessionCard extends StatelessWidget {
+class AttendanceCard extends StatelessWidget {
   final String title;
   final String subtitle;
-  final String launchDate;
-  final String sessionTime;
-  final String totalTime;
-  final SessionStatus status;
+  final String sessionDate;
+  final String? clockIn;
+  final String? clockOut;
+  final AttendanceStatus status;
   final VoidCallback onTap;
 
-  const UpcomingSessionCard({
+  const AttendanceCard({
     super.key,
     required this.title,
     required this.subtitle,
-    required this.launchDate,
-    required this.sessionTime,
-    required this.totalTime,
+    required this.sessionDate,
+    this.clockIn,
+    this.clockOut,
     required this.status,
     required this.onTap,
   });
 
   String get statusLabel {
     switch (status) {
-      case SessionStatus.upcoming:
-        return 'Upcoming';
-      case SessionStatus.completed:
+      case AttendanceStatus.completed:
         return 'Completed';
-      case SessionStatus.mandatory:
-        return 'Mandatory';
+      case AttendanceStatus.partial:
+        return 'Partial';
+      case AttendanceStatus.absent:
+        return 'Absent';
     }
   }
 
   Color get statusBackgroundColor {
     switch (status) {
-      case SessionStatus.upcoming:
-        return AppTheme.lightYellowColor;
-      case SessionStatus.completed:
+      case AttendanceStatus.completed:
         return AppTheme.lightGreenColor;
-      case SessionStatus.mandatory:
+      case AttendanceStatus.partial:
+        return AppTheme.lightYellowColor;
+      case AttendanceStatus.absent:
         return AppTheme.lightRedColor;
     }
   }
 
-  Color get _statusTextColor {
+  Color get statusTextColor {
     switch (status) {
-      case SessionStatus.upcoming:
-        return AppTheme.yellowColor;
-      case SessionStatus.completed:
+      case AttendanceStatus.completed:
         return AppTheme.greenColor;
-      case SessionStatus.mandatory:
+      case AttendanceStatus.partial:
+        return AppTheme.yellowColor;
+      case AttendanceStatus.absent:
         return AppTheme.redColor;
     }
   }
@@ -65,7 +65,7 @@ class UpcomingSessionCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: double.infinity,
+        width: 100.w,
         decoration: BoxDecoration(
           color: AppTheme.primaryColor,
           borderRadius: BorderRadius.circular(LayoutSpacing.heighttwelve),
@@ -107,14 +107,14 @@ class UpcomingSessionCard extends StatelessWidget {
                         child: Text(
                           statusLabel,
                           style: AppTextStyle.font14Weight500TextStyle
-                              .copyWith(color: _statusTextColor),
+                              .copyWith(color: statusTextColor),
                         ),
                       ),
                     ],
                   ),
                   SizedBox(height: LayoutSpacing.heightTwo),
                   Text(
-                    subtitle,
+                      subtitle,
                       style: AppTextStyle.font12Weight400TextStyle.copyWith(color: AppTheme.greyColor)
                   ),
                 ],
@@ -132,18 +132,19 @@ class UpcomingSessionCard extends StatelessWidget {
 
             Padding(
               padding: EdgeInsets.symmetric(horizontal: LayoutSpacing.heightSixteen, vertical: LayoutSpacing.heighttwelve,),
+
               child: Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Launch Date',
+                        'Session Date',
                           style: AppTextStyle.font12Weight500TextStyle.copyWith(color: AppTheme.greyColor)
                       ),
                       Text(
-                        launchDate,
-                        style: AppTextStyle.font12Weight400TextStyle.copyWith(color: AppTheme.darkGreyColor),
+                        sessionDate,
+                        style: AppTextStyle.font12Weight500TextStyle.copyWith(color: AppTheme.darkGreyColor),
                       ),
                     ],
                   ),
@@ -152,26 +153,37 @@ class UpcomingSessionCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Session Time',
+                        'Clock In',
                           style: AppTextStyle.font12Weight500TextStyle.copyWith(color: AppTheme.greyColor)
                       ),
                       Text(
-                        sessionTime,
-                        style: AppTextStyle.font12Weight400TextStyle.copyWith(color: AppTheme.darkGreyColor),
+                        clockIn ?? '--',
+                        style: AppTextStyle.font12Weight500TextStyle.copyWith(
+                          color: clockIn != null
+                              ? AppTheme.darkGreyColor
+                              : AppTheme.darkGreyColor,
+                        ),
                       ),
                     ],
                   ),
+
                   SizedBox(height: 1.2.h),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Total Time',
+                        'Clock Out',
                           style: AppTextStyle.font12Weight500TextStyle.copyWith(color: AppTheme.greyColor)
                       ),
                       Text(
-                        totalTime,
-                        style: AppTextStyle.font12Weight400TextStyle.copyWith(color: AppTheme.darkGreyColor),
+
+                        clockOut ?? '--',
+                        style: AppTextStyle.font12Weight500TextStyle.copyWith(
+                          color: clockOut != null
+                              ? AppTheme.darkGreyColor
+                              : AppTheme.darkGreyColor,
+                        ),
                       ),
                     ],
                   ),

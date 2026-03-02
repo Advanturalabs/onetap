@@ -6,15 +6,18 @@ import '../constants/app_text_style.dart';
 
 class CustomAppHeader extends StatelessWidget {
   final String title;
-  final bool showShare;
+  final bool showUpload;
   final VoidCallback onBackPressed;
+  final VoidCallback onUploadPressed;
+
 
 
   const CustomAppHeader({
     Key? key,
     required this.title,
     required this.onBackPressed,
-    this.showShare = true,
+    required this.onUploadPressed,
+    this.showUpload = true,
   }) : super(key: key);
 
   @override
@@ -49,7 +52,28 @@ class CustomAppHeader extends StatelessWidget {
                 ),
               ),
             ),
-          ),
+          ),  showUpload
+              ? GestureDetector(
+            onTap: onUploadPressed,
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: AppTheme.grey100Color,
+                shape: BoxShape.circle,
+                border: Border.all(color: AppTheme.borderColor),
+              ),
+              child: Center(
+                child: Image.asset(
+                  AppAssets.upload_icon,
+                  color: AppTheme.darkGreyColor,
+                  width: 24,
+                  height: 24,
+                ),
+              ),
+            ),
+          )
+              : const SizedBox(width: 40),
         ],
       ),
     );

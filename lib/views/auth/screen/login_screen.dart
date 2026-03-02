@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Text(
                       'Sign In',
-                      style: AppTextStyle.font24Weight700BoldTextStyle
+                      style: AppTextStyle.font24Weight700TextStyle
                           .copyWith(color: AppTheme.primaryColor),
                     ),
                     SizedBox(height: LayoutSpacing.heightEight),

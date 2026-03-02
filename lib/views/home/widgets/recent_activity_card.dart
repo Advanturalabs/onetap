@@ -61,7 +61,7 @@ class RecentActivityCard extends StatelessWidget {
             Expanded(
               child: Text(
                 activityText,
-                style: AppTextStyle.font16Weight600MediumTextStyle.copyWith(color: AppTheme.darkGreyColor)
+                style: AppTextStyle.font16Weight500TextStyle.copyWith(color: AppTheme.darkGreyColor)
               ),
             ),
           ],

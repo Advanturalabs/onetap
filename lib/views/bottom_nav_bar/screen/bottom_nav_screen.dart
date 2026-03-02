@@ -5,6 +5,7 @@ import 'package:onetap/AppTheme/app_theme.dart';
 import 'package:onetap/constants/app_assets.dart';
 import 'package:onetap/constants/app_text_style.dart';
 import 'package:onetap/views/home/screen/home_screen.dart';
+import 'package:onetap/views/profile/screen/profile_screen.dart';
 import 'package:sizer/sizer.dart';
 import '../../training/screen/training_screen.dart';
 import '../controller/bottom_nav_controller.dart';
@@ -18,7 +19,7 @@ class BottomNavScreen extends StatelessWidget {
     HomeScreen(),
     Center(child: Text('Events Screen')),
     TrainingScreen(),
-    Center(child: Text('Profile Screen')),
+    ProfileScreen(),
   ];
 
   @override

@@ -77,7 +77,7 @@ class SessionCard extends StatelessWidget {
                       ),
                       Text(
                         sessionDate,
-                        style: AppTextStyle.font12Weight400BoldTextStyle.copyWith(color: AppTheme.darkGreyColor),
+                        style: AppTextStyle.font12Weight400TextStyle.copyWith(color: AppTheme.darkGreyColor),
                       ),
                     ],
                   ),
@@ -91,7 +91,7 @@ class SessionCard extends StatelessWidget {
                       ),
                       Text(
                         sessionDuration,
-                        style: AppTextStyle.font12Weight400BoldTextStyle.copyWith(color: AppTheme.darkGreyColor),
+                        style: AppTextStyle.font12Weight400TextStyle.copyWith(color: AppTheme.darkGreyColor),
                       ),
                     ],
                   )

@@ -16,6 +16,7 @@ class AppAssets{
   static String user_icon= 'assets/app_icons/user_icon.png';
   static String validator_icon= 'assets/app_icons/validator_icon.png';
   static String bell_icon= 'assets/app_icons/bell_icon.png';
+  static String logout_icon= 'assets/app_icons/logout_icon.png';
 
 
 
@@ -26,5 +27,6 @@ class AppAssets{
   static String authBgImage= 'assets/app_images/auth_bg_image.png';
   static String image= 'assets/app_images/image.png';
   static String profileAvatar= 'assets/app_images/profile_avatar.png';
+  static String qrImage= 'assets/app_images/qr_image.png';
 
 }

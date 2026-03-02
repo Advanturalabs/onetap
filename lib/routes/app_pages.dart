@@ -6,7 +6,10 @@ import '../views/bottom_nav_bar/screen/bottom_nav_screen.dart';
 import '../views/home/screen/home_screen.dart';
 import '../views/home/screen/upcoming_session_screen.dart';
 import '../views/onboarding/screen/onboarding_screen.dart';
+import '../views/profile/screen/attendance_history_screen.dart';
+import '../views/profile/screen/profile_screen.dart';
 import '../views/splash/screen/splash_screen.dart';
+import '../views/training/screen/detailed_training_screen.dart';
 import '../views/training/screen/training_screen.dart';
 import 'app_routes.dart';
 
@@ -21,6 +24,9 @@ class AppPages {
     GetPage(name: AppRoutes.homeScreen, page: () =>  HomeScreen()),
     GetPage(name: AppRoutes.trainingScreen, page: () =>  TrainingScreen()),
     GetPage(name: AppRoutes.upcomingSessionScreen, page: () =>  UpcomingSessionScreen()),
+    GetPage(name: AppRoutes.detailedTrainingScreen, page: () =>  DetailedTrainingScreen()),
+    GetPage(name: AppRoutes.profileScreen, page: () =>  ProfileScreen()),
+    GetPage(name: AppRoutes.attendanceHistoryScreen, page: () =>  AttendanceHistoryScreen()),
 
   ];
 }

@@ -8,6 +8,7 @@ class AppTheme{
   static Color backgroundColor=Color(0xFFFCFCFD);
 
   static Color blackColor=Color(0xFF000000);
+  static Color purpleColor=Color(0xFF101828);
 
   static Color borderColor=Color(0xFFEAECF0);
   static Color greyColor=Color(0xFF667085);
@@ -24,6 +25,8 @@ class AppTheme{
   static Color yellowColor=Color(0xFFEAAA08);
   static Color lightYellowColor=Color(0xFFFEFBE8);
   static Color extraLightYellowColor=Color(0xFFFFFAEB);
+
+  static Color brownColor=Color(0xFFA15C07);
 
   static Color greyishColor=Color(0xFF9AA4B2);
 }

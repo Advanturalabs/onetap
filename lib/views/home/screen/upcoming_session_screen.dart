@@ -24,6 +24,7 @@ class _UpcomingSessionScreenState extends State<UpcomingSessionScreen> {
           children: [
             CustomAppHeader(
               title: 'Upcoming Session',
+              onUploadPressed: (){},
               onBackPressed: () {Get.back();},
             ),
             SizedBox(height: LayoutSpacing.heightSixteen,),

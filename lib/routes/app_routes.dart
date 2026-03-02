@@ -8,4 +8,7 @@ class AppRoutes {
    static const homeScreen = '/homeScreen';
    static const upcomingSessionScreen = '/upcomingSessionScreen';
    static const trainingScreen = '/trainingScreen';
+   static const detailedTrainingScreen = '/detailedTrainingScreen';
+   static const profileScreen = '/profileScreen';
+   static const attendanceHistoryScreen = '/attendanceHistoryScreen';
 }
