@@ -22,7 +22,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
+  final loginFormKey = GlobalKey<FormState>();
   final AuthController authController = Get.find();
 
   @override
@@ -80,78 +80,82 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   child: Padding(
-                    padding:
-                    const EdgeInsets.all(LayoutSpacing.heightSixteen),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // Email
-                        Text(
-                          'Email',
-                          style: AppTextStyle.font20Weight500TextStyle
-                              .copyWith(color: AppTheme.blackColor),
-                        ),
-                        SizedBox(height: LayoutSpacing.heightSix),
-                        CustomTextField(
-                          controller: emailController,
-                          hintText: 'Enter your email',
-                          validator: CustomValidator.email,
-                        ),
+                    padding: const EdgeInsets.all(LayoutSpacing.heightSixteen),
+                    child: Form(
+                      key: loginFormKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Email
+                          Text(
+                            'Email',
+                            style: AppTextStyle.font20Weight500TextStyle
+                                .copyWith(color: AppTheme.blackColor),
+                          ),
+                          SizedBox(height: LayoutSpacing.heightSix),
+                          CustomTextField(
+                            controller: emailController,
+                            hintText: 'Enter your email',
+                            validator: CustomValidator.email,
+                          ),
 
-                        SizedBox(height: LayoutSpacing.heighttwelve),
+                          SizedBox(height: LayoutSpacing.heighttwelve),
 
-                        // Password
-                        Text(
-                          'Password',
-                          style: AppTextStyle.font20Weight500TextStyle
-                              .copyWith(color: AppTheme.blackColor),
-                        ),
-                        SizedBox(height: LayoutSpacing.heightSix),
-                        Obx(
-                              () => CustomTextField(
-                            controller: passwordController,
-                            hintText: 'Enter your password',
-                            isObscure:
-                            authController.obscureLoginPassword.value,
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                authController.obscureLoginPassword.value
-                                    ? Icons.visibility_off_outlined
-                                    : Icons.visibility_outlined,
-                                color: AppTheme.greyColor,
-                                size: 16,
+                          // Password
+                          Text(
+                            'Password',
+                            style: AppTextStyle.font20Weight500TextStyle
+                                .copyWith(color: AppTheme.blackColor),
+                          ),
+                          SizedBox(height: LayoutSpacing.heightSix),
+                          Obx(
+                                () => CustomTextField(
+                              controller: passwordController,
+                              hintText: 'Enter your password',
+                              isObscure:
+                              authController.obscureLoginPassword.value,
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  authController.obscureLoginPassword.value
+                                      ? Icons.visibility_off_outlined
+                                      : Icons.visibility_outlined,
+                                  color: AppTheme.greyColor,
+                                  size: 16,
+                                ),
+                                onPressed:
+                                authController.toggleLoginPasswordVisibility,
                               ),
-                              onPressed:
-                              authController.toggleLoginPasswordVisibility,
-                            ),
-                            validator: CustomValidator.password,
-                          ),
-                        ),
-                        SizedBox(height: LayoutSpacing.heighttwelve),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: GestureDetector(
-                            onTap: (){
-                              Get.toNamed(AppRoutes.forgotPasswordScreen);
-                            },
-                            child: Text(
-                              'Forgot password?',
-                              style: AppTextStyle.font14Weight400TextStyle
-                                  .copyWith(color: AppTheme.secondaryColor),
+                              validator: CustomValidator.password,
                             ),
                           ),
-                        ),
-                        SizedBox(height: LayoutSpacing.heightSixteen+LayoutSpacing.heightFour),
-                        CustomButton(
-                          Text: 'Log In',
-                          onTap: () {
-                            print("Email : ${emailController.text}");
-                            print("Password : ${passwordController.text}");
-                            Get.toNamed(AppRoutes.bottomNavScreen);
-                          },
-                        ),
-                        SizedBox(height: 24)
-                      ],
+                          SizedBox(height: LayoutSpacing.heighttwelve),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: GestureDetector(
+                              onTap: (){
+                                Get.toNamed(AppRoutes.forgotPasswordScreen);
+                              },
+                              child: Text(
+                                'Forgot password?',
+                                style: AppTextStyle.font14Weight400TextStyle
+                                    .copyWith(color: AppTheme.secondaryColor),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: LayoutSpacing.heightSixteen+LayoutSpacing.heightFour),
+                          CustomButton(
+                            Text: 'Log In',
+                            onTap: () {
+                              // if (loginFormKey.currentState!.validate()) {
+                                print("Email : ${emailController.text}");
+                                print("Password : ${passwordController.text}");
+                                Get.toNamed(AppRoutes.bottomNavScreen);
+                              // }
+                              },
+                          ),
+                          SizedBox(height: 24)
+                        ],
+                      ),
                     ),
                   ),
                 ),

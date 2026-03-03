@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:onetap/AppTheme/app_theme.dart';
 import 'package:onetap/constants/app_text_style.dart';
-import 'package:onetap/routes/app_pages.dart';
 import 'package:onetap/routes/app_routes.dart';
+import 'package:onetap/views/profile/widgets/action_card.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../app_widgets/custom_image_handler.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/layout_spacing.dart';
-import '../widgets/summary_row_card.dart';
+import '../widgets/training_summary_card.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -162,7 +162,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     SizedBox(height: LayoutSpacing.heightSixteen,),
                     Text("Training Summary",style: AppTextStyle.font16Weight400TextStyle.copyWith(color: AppTheme.blackColor)),
                     SizedBox(height: LayoutSpacing.heightSixteen,),
-                    SummaryRowCard(
+                    TrainingSummaryCard(
                       iconPath: AppAssets.lock_icon,
                       iconColor: AppTheme.secondaryColor,
                       iconBgColor: AppTheme.lightSecondaryColor,
@@ -171,7 +171,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       onTap: () {},
                     ),
                     SizedBox(height: LayoutSpacing.heighttwelve),
-                    SummaryRowCard(
+                    TrainingSummaryCard(
                       iconPath: AppAssets.clock_icon,
                       iconColor: AppTheme.greenColor,
                       iconBgColor: AppTheme.lightGreenColor,
@@ -180,7 +180,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       onTap: () {},
                     ),
                     SizedBox(height: LayoutSpacing.heighttwelve),
-                    SummaryRowCard(
+                    TrainingSummaryCard(
                       iconPath: AppAssets.training_icon,
                       iconColor: AppTheme.yellowColor,
                       iconBgColor: AppTheme.lightYellowColor,
@@ -191,7 +191,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     SizedBox(height: LayoutSpacing.heightSixteen,),
                     Text("Attendance & Reports",style: AppTextStyle.font16Weight400TextStyle.copyWith(color: AppTheme.blackColor)),
                     SizedBox(height: LayoutSpacing.heightSixteen,),
-                    SummaryRowCard(
+                    ActionCard(
                       iconPath: AppAssets.clock_icon,
                       iconColor: AppTheme.greyColor,
                       iconBgColor: AppTheme.grey100Color,
@@ -203,22 +203,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     SizedBox(height: LayoutSpacing.heightSixteen,),
                     Text("Account Actions",style: AppTextStyle.font16Weight400TextStyle.copyWith(color: AppTheme.blackColor)),
                     SizedBox(height: LayoutSpacing.heightSixteen,),
-                    SummaryRowCard(
+                    ActionCard(
                       iconPath: AppAssets.lock_icon,
                       iconColor: AppTheme.greyColor,
                       iconBgColor: AppTheme.grey100Color,
                       label: 'Change Password',
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(AppRoutes.changePasswordScreen);
+                      },
                     ),
                     SizedBox(height: LayoutSpacing.heighttwelve),
-                    SummaryRowCard(
+                    ActionCard(
                       iconPath: AppAssets.logout_icon,
                       iconColor: AppTheme.greyColor,
                       iconBgColor: AppTheme.grey100Color,
                       label: 'Log Out',
                       onTap: () {},
                     ),
-
                   ],
                 ),
               ),

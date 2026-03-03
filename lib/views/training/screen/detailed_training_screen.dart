@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:onetap/constants/app_assets.dart';
 import 'package:onetap/constants/app_text_style.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../AppTheme/app_theme.dart';
@@ -28,14 +28,18 @@ class _DetailedTrainingScreenState extends State<DetailedTrainingScreen> {
             CustomAppHeader(
               title: 'Session Detail',
               onBackPressed: () {Get.back();},
+              showUpload: false,
               onUploadPressed: () { },
             ),
-            SizedBox(height: LayoutSpacing.heightSixteen,),
+            SizedBox(height: LayoutSpacing.heightSixteen),
             Container(
               width: 100.w,
-              padding: EdgeInsets.symmetric(horizontal: LayoutSpacing.heightSixteen, vertical: LayoutSpacing.heighttwelve),
+              padding: EdgeInsets.symmetric(
+                horizontal: LayoutSpacing.heightSixteen,
+                vertical: LayoutSpacing.heighttwelve,
+              ),
               decoration: BoxDecoration(
-                  color: AppTheme.backgroundColor,
+                color: AppTheme.backgroundColor,
                 border: Border(
                   bottom: BorderSide(
                     color: AppTheme.borderColor,
@@ -46,13 +50,17 @@ class _DetailedTrainingScreenState extends State<DetailedTrainingScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Session Title ",style: AppTextStyle.font16Weight700TextStyle.copyWith(color: AppTheme.blackColor)),
+                  Text(
+                    "Session Title ",
+                    style: AppTextStyle.font16Weight700TextStyle
+                        .copyWith(color: AppTheme.blackColor),
+                  ),
                   SizedBox(height: LayoutSpacing.heightFour),
                   Row(
                     children: [
                       Container(
                         padding: EdgeInsets.symmetric(
-                          horizontal: LayoutSpacing.heightSix+LayoutSpacing.heightFour,
+                          horizontal: LayoutSpacing.heightSix + LayoutSpacing.heightFour,
                           vertical: LayoutSpacing.heightFour,
                         ),
                         decoration: BoxDecoration(
@@ -65,10 +73,10 @@ class _DetailedTrainingScreenState extends State<DetailedTrainingScreen> {
                               .copyWith(color: AppTheme.greenColor),
                         ),
                       ),
-                      SizedBox(width: LayoutSpacing.heighttwelve,),
+                      SizedBox(width: LayoutSpacing.heighttwelve),
                       Container(
                         padding: EdgeInsets.symmetric(
-                          horizontal: LayoutSpacing.heightSix+LayoutSpacing.heightFour,
+                          horizontal: LayoutSpacing.heightSix + LayoutSpacing.heightFour,
                           vertical: LayoutSpacing.heightFour,
                         ),
                         decoration: BoxDecoration(
@@ -83,97 +91,122 @@ class _DetailedTrainingScreenState extends State<DetailedTrainingScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: LayoutSpacing.heighttwelve,),
+                  SizedBox(height: LayoutSpacing.heighttwelve),
                   Row(
                     children: [
-                      Image.asset(
-                        AppAssets.calendar_icon,
-                        width: 20,
-                        color: AppTheme.greyColor,
+                      Icon(Icons.calendar_today, size: 20, color: AppTheme.greyColor),
+                      SizedBox(width: LayoutSpacing.heighttwelve),
+                      Text(
+                        'Date :',
+                        style: AppTextStyle.font14Weight400TextStyle
+                            .copyWith(color: AppTheme.greyColor),
                       ),
-                      SizedBox(width: LayoutSpacing.heighttwelve,),
-                      Text('Date :',style: AppTextStyle.font14Weight400TextStyle.copyWith(color: AppTheme.greyColor),),
-                      Text(' 25 jan 2026',style: AppTextStyle.font14Weight500TextStyle.copyWith(color: AppTheme.darkGreyColor),)
+                      Text(
+                        ' 25 Jan 2026',
+                        style: AppTextStyle.font14Weight500TextStyle
+                            .copyWith(color: AppTheme.darkGreyColor),
+                      ),
                     ],
                   ),
-                  SizedBox(height: LayoutSpacing.heighttwelve,),
+                  SizedBox(height: LayoutSpacing.heighttwelve),
                   Row(
                     children: [
-                      Image.asset(
-                        AppAssets.clock_icon,
-                        width: 20,
-                        color: AppTheme.greyColor,
+                      Icon(Icons.access_time, size: 20, color: AppTheme.greyColor),
+                      SizedBox(width: LayoutSpacing.heighttwelve),
+                      Text(
+                        'Time :',
+                        style: AppTextStyle.font14Weight400TextStyle
+                            .copyWith(color: AppTheme.greyColor),
                       ),
-                      SizedBox(width: LayoutSpacing.heighttwelve,),
-                      Text('Time :',style: AppTextStyle.font14Weight400TextStyle.copyWith(color: AppTheme.greyColor),),
-                      Text(' 3 :00 pm - 7 :00 pm',style: AppTextStyle.font14Weight500TextStyle.copyWith(color: AppTheme.darkGreyColor),)
+                      Text(
+                        ' 3:00 pm - 7:00 pm',
+                        style: AppTextStyle.font14Weight500TextStyle
+                            .copyWith(color: AppTheme.darkGreyColor),
+                      ),
                     ],
                   ),
                 ],
               ),
             ),
-            SizedBox(height: LayoutSpacing.heightSixteen,),
+            SizedBox(height: LayoutSpacing.heightSixteen),
             Container(
               width: 100.w,
-              padding: EdgeInsets.symmetric(horizontal: LayoutSpacing.heightSixteen, vertical: LayoutSpacing.heighttwelve),
+              padding: EdgeInsets.symmetric(
+                horizontal: LayoutSpacing.heightSixteen,
+                vertical: LayoutSpacing.heighttwelve,
+              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(LayoutSpacing.heighttwelve),
                 color: AppTheme.primaryColor,
-                border: Border.all(
-                  color: AppTheme.borderColor
-                )
+                border: Border.all(color: AppTheme.borderColor),
               ),
               child: Column(
                 children: [
-                  Image.asset(
-                    AppAssets.qrImage,
-                    width: 224,
+                  Container(
+                    padding: EdgeInsets.all(LayoutSpacing.heightFour),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(LayoutSpacing.heighttwelve),
+                      border: Border.all(
+                        color: AppTheme.borderColor,
+                      )
+                    ),
+
+                    child:  QrImageView(
+                      data: "session_id_or_unique_token_here",
+                      version: QrVersions.auto,
+                      size: 199,
+                      backgroundColor: AppTheme.primaryColor,
+                      dataModuleStyle: QrDataModuleStyle(
+                        dataModuleShape: QrDataModuleShape.square,
+                        color: AppTheme.lightGreyColor,
+                      ),
+                      eyeStyle: QrEyeStyle(
+                        eyeShape: QrEyeShape.square,
+                        color: AppTheme.lightGreyColor,
+                      ),
+                    ),
+
                   ),
-                  SizedBox(height: LayoutSpacing.heightSixteen,),
+                  SizedBox(height: LayoutSpacing.heightSixteen),
                   Text(
                     "Scan this QR code to mark your attendance",
-                    style: AppTextStyle.font14Weight500TextStyle.copyWith(color: AppTheme.purpleColor
-                    ),
+                    style: AppTextStyle.font14Weight500TextStyle
+                        .copyWith(color: AppTheme.purpleColor),
                   ),
-                  SizedBox(height: LayoutSpacing.heightFour,),
+                  SizedBox(height: LayoutSpacing.heightFour),
                   Text(
                     "Valid only for this session",
-                    style: AppTextStyle.font12Weight400TextStyle.copyWith(color: AppTheme.greyColor
-                    ),
+                    style: AppTextStyle.font12Weight400TextStyle
+                        .copyWith(color: AppTheme.greyColor),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: LayoutSpacing.heightSixteen+LayoutSpacing.heightFour),
+            SizedBox(height: LayoutSpacing.heightSixteen + LayoutSpacing.heightFour),
             Container(
               height: 78,
               padding: EdgeInsets.all(LayoutSpacing.heighttwelve),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(LayoutSpacing.heighttwelve),
-                  color: AppTheme.lightSecondaryColor,
-                  border: Border.all(
-                      color: AppTheme.secondaryColor
-                  )
+                borderRadius: BorderRadius.circular(LayoutSpacing.heighttwelve),
+                color: AppTheme.lightSecondaryColor,
+                border: Border.all(color: AppTheme.secondaryColor),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(
-                    Icons.info_outline,
-                    color: AppTheme.secondaryColor,
-                    size: 20,
-                  ),
+                  Icon(Icons.info_outline, color: AppTheme.secondaryColor, size: 20),
                   SizedBox(width: LayoutSpacing.heighttwelve),
                   Expanded(
                     child: Text(
                       "Attendance will be available when the session starts. Make sure to arrive on time and scan the QR code.",
-                      style: AppTextStyle.font12Weight500TextStyle.copyWith(color: AppTheme.secondaryColor),
+                      style: AppTextStyle.font12Weight500TextStyle
+                          .copyWith(color: AppTheme.secondaryColor),
                     ),
-                  )
+                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

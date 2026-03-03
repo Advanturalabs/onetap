@@ -11,4 +11,5 @@ class AppRoutes {
    static const detailedTrainingScreen = '/detailedTrainingScreen';
    static const profileScreen = '/profileScreen';
    static const attendanceHistoryScreen = '/attendanceHistoryScreen';
+   static const changePasswordScreen = '/changePasswordScreen';
 }

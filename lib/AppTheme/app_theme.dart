@@ -12,6 +12,7 @@ class AppTheme{
 
   static Color borderColor=Color(0xFFEAECF0);
   static Color greyColor=Color(0xFF667085);
+  static Color lightGreyColor=Color(0xFFD0D5DD);
   static Color darkGreyColor=Color(0xFF344054);
   static Color grey400Color=Color(0xFF98A2B3);
   static Color grey100Color=Color(0xFFF2F4F7);

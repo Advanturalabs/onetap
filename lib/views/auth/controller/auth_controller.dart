@@ -1,9 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
-
-
-
 
   final obscureLoginPassword = true.obs;
   final obscureNewPassword = true.obs;

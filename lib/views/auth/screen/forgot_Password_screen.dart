@@ -20,9 +20,9 @@ class ForgotPasswordScreen extends StatefulWidget {
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final TextEditingController forgotEmailController = TextEditingController();
+  final  forgotPasswordFormKey= GlobalKey<FormState>();
 
   final AuthController authController = Get.find();
-
   @override
   void dispose() {
     forgotEmailController.dispose();
@@ -82,33 +82,36 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       ),
                     ),
                     child: Padding(
-                      padding:
-                      const EdgeInsets.all(LayoutSpacing.heightSixteen),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // Email
-                          Text(
-                            'Email',
-                            style: AppTextStyle.font20Weight500TextStyle
-                                .copyWith(color: AppTheme.blackColor),
-                          ),
-                          SizedBox(height: LayoutSpacing.heightSix),
-                          CustomTextField(
-                            controller: forgotEmailController,
-                            hintText: 'Enter your email',
-                            validator: CustomValidator.email,
-                          ),
-                          SizedBox(height: 20.h),
-                          CustomButton(
-                            Text: 'Send Reset Link',
-                            onTap: () {
-                              print("Email : ${forgotEmailController.text}");
-                              Get.toNamed(AppRoutes.resetPasswordScreen);
-
-                            },
-                          ),
-                        ],
+                      padding: const EdgeInsets.all(LayoutSpacing.heightSixteen),
+                      child: Form(
+                        key: forgotPasswordFormKey,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // Email
+                            Text(
+                              'Email',
+                              style: AppTextStyle.font20Weight500TextStyle
+                                  .copyWith(color: AppTheme.blackColor),
+                            ),
+                            SizedBox(height: LayoutSpacing.heightSix),
+                            CustomTextField(
+                              controller: forgotEmailController,
+                              hintText: 'Enter your email',
+                              validator: CustomValidator.email,
+                            ),
+                            SizedBox(height: 20.h),
+                            CustomButton(
+                              Text: 'Send Reset Link',
+                              onTap: () {
+                                // if(forgotPasswordFormKey.currentState!.validate()){
+                                  print("Email : ${forgotEmailController.text}");
+                                  Get.toNamed(AppRoutes.resetPasswordScreen);
+                                // }
+                              },
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

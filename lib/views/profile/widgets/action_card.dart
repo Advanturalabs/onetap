@@ -5,21 +5,19 @@ import '../../../AppTheme/app_theme.dart';
 import '../../../constants/app_text_style.dart';
 import '../../../constants/layout_spacing.dart';
 
-class SummaryRowCard extends StatelessWidget {
+class ActionCard extends StatelessWidget {
   final String iconPath;
   final Color iconColor;
   final Color iconBgColor;
   final String label;
-  final String? value;
   final VoidCallback onTap;
 
-  const SummaryRowCard({
+  const ActionCard({
     super.key,
     required this.iconPath,
     required this.iconColor,
     required this.iconBgColor,
     required this.label,
-    this.value,
     required this.onTap,
   });
 
@@ -61,16 +59,8 @@ class SummaryRowCard extends StatelessWidget {
                   Text(
                     label,
                     style: AppTextStyle.font14Weight500TextStyle
-                        .copyWith(color: AppTheme.greyColor),
+                        .copyWith(color: AppTheme.darkGreyColor),
                   ),
-                  if (value != null && value!.isNotEmpty) ...[
-                    SizedBox(height: 2),
-                    Text(
-                      value!,
-                      style: AppTextStyle.font14Weight600TextStyle
-                          .copyWith(color: AppTheme.blackColor),
-                    ),
-                  ],
                 ],
               ),
             ),

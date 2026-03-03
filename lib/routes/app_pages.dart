@@ -7,6 +7,7 @@ import '../views/home/screen/home_screen.dart';
 import '../views/home/screen/upcoming_session_screen.dart';
 import '../views/onboarding/screen/onboarding_screen.dart';
 import '../views/profile/screen/attendance_history_screen.dart';
+import '../views/profile/screen/change_password_screen.dart';
 import '../views/profile/screen/profile_screen.dart';
 import '../views/splash/screen/splash_screen.dart';
 import '../views/training/screen/detailed_training_screen.dart';
@@ -27,6 +28,7 @@ class AppPages {
     GetPage(name: AppRoutes.detailedTrainingScreen, page: () =>  DetailedTrainingScreen()),
     GetPage(name: AppRoutes.profileScreen, page: () =>  ProfileScreen()),
     GetPage(name: AppRoutes.attendanceHistoryScreen, page: () =>  AttendanceHistoryScreen()),
+    GetPage(name: AppRoutes.changePasswordScreen, page: () =>  ChangePasswordScreen()),
 
   ];
 }

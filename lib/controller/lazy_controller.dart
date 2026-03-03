@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 
 import '../views/auth/controller/auth_controller.dart';
 import '../views/bottom_nav_bar/controller/bottom_nav_controller.dart';
+import '../views/profile/controller/profile_controller.dart';
 import '../views/splash/controller/splash_controller.dart';
 import '../views/training/controller/training_controller.dart';
 
@@ -16,6 +17,7 @@ class LazyController extends Bindings{
     Get.put(AuthController());
     Get.put(BottomNavController());
     Get.put(TrainingController());
+    Get.put(ProfileController());
 
 
   }

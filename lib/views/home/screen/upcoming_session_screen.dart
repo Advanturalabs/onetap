@@ -24,6 +24,7 @@ class _UpcomingSessionScreenState extends State<UpcomingSessionScreen> {
           children: [
             CustomAppHeader(
               title: 'Upcoming Session',
+              showUpload: false,
               onUploadPressed: (){},
               onBackPressed: () {Get.back();},
             ),

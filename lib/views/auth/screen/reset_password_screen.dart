@@ -21,6 +21,7 @@ class ResetPasswordScreen extends StatefulWidget {
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   final TextEditingController newPasswordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
+  final  resetPasswordFormKey= GlobalKey<FormState>();
 
   final AuthController authController = Get.find();
 
@@ -84,77 +85,82 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       ),
                     ),
                     child: Padding(
-                      padding:
-                      const EdgeInsets.all(LayoutSpacing.heightSixteen),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // Email
-                          Text(
-                            'New Password',
-                            style: AppTextStyle.font14Weight400TextStyle
-                                .copyWith(color: AppTheme.blackColor),
-                          ),
-                          SizedBox(height: LayoutSpacing.heightSix),
+                      padding: const EdgeInsets.all(LayoutSpacing.heightSixteen),
+                      child: Form(
+                        key: resetPasswordFormKey,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // Email
+                            Text(
+                              'New Password',
+                              style: AppTextStyle.font14Weight400TextStyle
+                                  .copyWith(color: AppTheme.blackColor),
+                            ),
+                            SizedBox(height: LayoutSpacing.heightSix),
 
-                          Obx(
-                                () => CustomTextField(
-                                  controller: newPasswordController,
-                                  hintText: 'Enter new password',
-                                  isObscure:
-                                  authController.obscureNewPassword.value,
-                                  suffixIcon: IconButton(
-                                    icon: Icon(
-                                      authController.obscureNewPassword.value
-                                          ? Icons.visibility_off_outlined
-                                          : Icons.visibility_outlined,
-                                      color: AppTheme.greyColor,
-                                      size: 16,
+                            Obx(
+                                  () => CustomTextField(
+                                    controller: newPasswordController,
+                                    hintText: 'Enter new password',
+                                    isObscure:
+                                    authController.obscureNewPassword.value,
+                                    suffixIcon: IconButton(
+                                      icon: Icon(
+                                        authController.obscureNewPassword.value
+                                            ? Icons.visibility_off_outlined
+                                            : Icons.visibility_outlined,
+                                        color: AppTheme.greyColor,
+                                        size: 16,
+                                      ),
+                                      onPressed:
+                                      authController.toggleNewPasswordVisibility,
                                     ),
-                                    onPressed:
-                                    authController.toggleNewPasswordVisibility,
+                                    validator: CustomValidator.password,
                                   ),
-                                  validator: CustomValidator.password,
-                                ),
-                          ),
-                          SizedBox(height: LayoutSpacing.heighttwelve),
-                          Text(
-                            'Confirm New Password',
-                            style: AppTextStyle.font14Weight400TextStyle
-                                .copyWith(color: AppTheme.blackColor),
-                          ),
-                          SizedBox(height: LayoutSpacing.heightSix),
-                          Obx(
-                                () => CustomTextField(
-                                  controller: confirmPasswordController,
-                                  hintText: 'Confirm new password',
-                                  isObscure: authController.obscureNewPassword.value,
-                                  suffixIcon: IconButton(
-                                    icon: Icon(
-                                      authController.obscureConfirmNewPassword.value
-                                          ? Icons.visibility_off_outlined
-                                          : Icons.visibility_outlined,
-                                      color: AppTheme.greyColor,
-                                      size: 16,
+                            ),
+                            SizedBox(height: LayoutSpacing.heighttwelve),
+                            Text(
+                              'Confirm New Password',
+                              style: AppTextStyle.font14Weight400TextStyle
+                                  .copyWith(color: AppTheme.blackColor),
+                            ),
+                            SizedBox(height: LayoutSpacing.heightSix),
+                            Obx(
+                                  () => CustomTextField(
+                                    controller: confirmPasswordController,
+                                    hintText: 'Confirm new password',
+                                    isObscure: authController.obscureNewPassword.value,
+                                    suffixIcon: IconButton(
+                                      icon: Icon(
+                                        authController.obscureConfirmNewPassword.value
+                                            ? Icons.visibility_off_outlined
+                                            : Icons.visibility_outlined,
+                                        color: AppTheme.greyColor,
+                                        size: 16,
+                                      ),
+                                      onPressed: authController.toggleConfirmNewPasswordVisibility,
                                     ),
-                                    onPressed: authController.toggleConfirmNewPasswordVisibility,
+                                    validator: (value) => CustomValidator.confirmPassword(
+                                      value,
+                                      newPasswordController.text,
+                                    ),
                                   ),
-                                  validator: (value) => CustomValidator.confirmPassword(
-                                    value,
-                                    newPasswordController.text,
-                                  ),
-                                ),
-                          ),
-                          SizedBox(height: 8.h,),
-                          CustomButton(
-                            Text: 'Update Password',
-                            onTap: () {
-                              print("New Password : ${newPasswordController.text}");
-                              print("Confirm Password : ${confirmPasswordController.text}");
-                            },
-                          ),
-                          SizedBox(height: 24)
-                        ],
+                            ),
+                            SizedBox(height: 8.h,),
+                            CustomButton(
+                              Text: 'Update Password',
+                              onTap: () {
+                                // if(resetPasswordFormKey.currentState!.validate()){
+                                  print("New Password : ${newPasswordController.text}");
+                                  print("Confirm Password : ${confirmPasswordController.text}");
+                                  Get.toNamed(AppRoutes.loginScreen);
+                                // }
+                              },
+                            ),
+                            SizedBox(height: 24)
+                          ],
+                        ),
                       ),
                     ),
                   ),
